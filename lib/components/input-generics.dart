@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
+// ignore: must_be_immutable
 class InputGeneric extends StatefulWidget {
   late String label;
   late TextEditingController controller;
@@ -16,9 +16,9 @@ class InputGeneric extends StatefulWidget {
     required this.label,
     required this.controller,
     required this.typeInput,
-    required this.validator,
+    // required this.validator,
     // required this.onChange,
-    required this.errorText,
+    // required this.errorText,
   }) : super(key: key);
 
   @override
@@ -49,9 +49,11 @@ class _InputGenericState extends State<InputGeneric> {
     return TextFormField(
       controller: widget.controller,
       keyboardType: widget.typeInput,
-      decoration:
-          InputDecoration(labelText: widget.label, errorText: widget.errorText),
-      validator: widget.validator,
+      decoration: InputDecoration(
+        labelText: widget.label,
+        //  errorText: widget.errorText
+      ),
+      // validator: widget.validator,
       onEditingComplete: () => _validateInput(widget.controller.text),
       // onChanged: widget.onChange,
     );
