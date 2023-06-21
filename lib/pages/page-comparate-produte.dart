@@ -7,7 +7,6 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-import '../components/input-generics.dart';
 import '../controller/controller.dart';
 
 class PageComparateProdute extends StatefulWidget {
@@ -27,8 +26,8 @@ class _PageComparateProduteState extends State<PageComparateProdute> {
 
   // Função que compara dois produtos e retorna qual é mais barato
   compararProdutos(
-    var nome1,
-    var nome2,
+    String nome1,
+    String nome2,
     var peso1,
     var preco1,
     var peso2,
@@ -76,35 +75,113 @@ class _PageComparateProduteState extends State<PageComparateProdute> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              InputGeneric(
-                label: 'Nome do produto 1',
-                controller: nome1,
-                typeInput: TextInputType.number,
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: TextFormField(
+                  decoration: const InputDecoration(
+                    labelText: "Nome do Produto 1",
+                    border: OutlineInputBorder(),
+                    labelStyle: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                    filled: true,
+                    fillColor: Color(0xFFEEEEEE),
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                  ),
+                  keyboardType: TextInputType.text,
+                  controller: nome1,
+                ),
               ),
-              InputGeneric(
-                label: 'Peso 1 (kg)',
-                controller: peso1,
-                typeInput: TextInputType.number,
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: TextFormField(
+                  decoration: const InputDecoration(
+                    labelText: "Peso 1 (kg)",
+                    border: OutlineInputBorder(),
+                    labelStyle: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                    filled: true,
+                    fillColor: Color(0xFFEEEEEE),
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                  ),
+                  keyboardType: TextInputType.number,
+                  controller: peso1,
+                ),
               ),
-              InputGeneric(
-                label: 'Preço 1 (R\$)',
-                controller: preco1,
-                typeInput: TextInputType.number,
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: TextFormField(
+                  decoration: const InputDecoration(
+                    labelText: "Preço 1 (R\$)",
+                    border: OutlineInputBorder(),
+                    labelStyle: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                    filled: true,
+                    fillColor: Color(0xFFEEEEEE),
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                  ),
+                  keyboardType: TextInputType.number,
+                  controller: preco1,
+                ),
               ),
-              InputGeneric(
-                label: 'Nome do produto 2',
-                controller: nome2,
-                typeInput: TextInputType.number,
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: TextFormField(
+                  decoration: const InputDecoration(
+                    labelText: "Nome do Produto 2",
+                    border: OutlineInputBorder(),
+                    labelStyle: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                    filled: true,
+                    fillColor: Color(0xFFEEEEEE),
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                  ),
+                  keyboardType: TextInputType.text,
+                  controller: nome2,
+                ),
               ),
-              InputGeneric(
-                label: 'Peso 2 (kg)',
-                controller: peso2,
-                typeInput: TextInputType.number,
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: TextFormField(
+                  decoration: const InputDecoration(
+                    labelText: "Peso 2 (kg)",
+                    border: OutlineInputBorder(),
+                    labelStyle: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                    filled: true,
+                    fillColor: Color(0xFFEEEEEE),
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                  ),
+                  keyboardType: TextInputType.number,
+                  controller: peso2,
+                ),
               ),
-              InputGeneric(
-                label: 'Preço 2 (R\$)',
-                controller: preco2,
-                typeInput: TextInputType.number,
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: TextFormField(
+                  decoration: const InputDecoration(
+                    labelText: "Preço 2 (R\$)",
+                    border: OutlineInputBorder(),
+                    labelStyle: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                    filled: true,
+                    fillColor: Color(0xFFEEEEEE),
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                  ),
+                  keyboardType: TextInputType.number,
+                  controller: preco2,
+                ),
               ),
               SizedBox(height: 16.0),
               Row(
@@ -114,13 +191,18 @@ class _PageComparateProduteState extends State<PageComparateProdute> {
                     padding: const EdgeInsets.all(10),
                     child: ElevatedButton(
                       onPressed: () {
-                        compararProdutos(
-                            nome1,
-                            nome2,
-                            double.parse(peso1.text),
-                            double.parse(preco1.text),
-                            double.parse(peso2.text),
-                            double.parse(preco2.text));
+                        double peso1Value, preco1Value, peso2Value, preco2Value;
+                        try {
+                          peso1Value = double.parse(peso1.text);
+                          preco1Value = double.parse(preco1.text);
+                          peso2Value = double.parse(peso2.text);
+                          preco2Value = double.parse(preco2.text);
+                          compararProdutos(nome1.text, nome2.text, peso1Value,
+                              preco1Value, peso2Value, preco2Value);
+                        } catch (e) {
+                          print('Error parsing input values: $e');
+                          // Handle the error accordingly (e.g., show an error message to the user)
+                        }
                       },
                       child: const Text('Comparar'),
                     ),

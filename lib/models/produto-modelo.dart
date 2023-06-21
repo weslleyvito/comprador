@@ -61,8 +61,8 @@ class ProdutoModelo {
     return jsonEncode({
       'id': id,
       'nome_produto': nomeProduto,
-      'preco_produto': double.parse(precoProduto),
-      'medida_produto': double.parse(medidaProduto),
+      'preco_produto': precoProduto,
+      'medida_produto': medidaProduto,
     });
   }
 }

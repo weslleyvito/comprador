@@ -28,9 +28,6 @@ class CrudProdutoService {
       'Authorization': '${_loginController.token.value}'
     };
     try {
-      // Mudando a variável observada indicando que uma requisição está em andamento
-
-      // Requisição em si
       var response = await http.post(Uri.parse('$baseUrl${modulo}cadastrar/'),
 
           // Nova empresa que será cadastrado
@@ -137,7 +134,6 @@ class CrudProdutoService {
       'Authorization': '${_loginController.token.value}'
     };
     try {
-      // Requisição em si
       var response =
           await http.patch(Uri.parse('$baseUrl${modulo}atualizar/$id/'),
               body: jsonEncode({

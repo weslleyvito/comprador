@@ -88,6 +88,14 @@ class _MenuPageState extends State<MenuPage> {
                             children: [
                               Text("Preço:${informacao.precoProduto} reais"),
                               Text("Medida:${informacao.medidaProduto} kg/L"),
+                              IconButton(
+                                  onPressed: () {
+                                    CrudProdutoService()
+                                        .deletarProduto(informacao.id)
+                                        .then((value) => Navigator.of(context)
+                                            .pushReplacementNamed('/menu'));
+                                  },
+                                  icon: Icon(Icons.delete))
                             ],
                           ),
                         ),
