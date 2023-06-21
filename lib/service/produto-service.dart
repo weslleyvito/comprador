@@ -1,3 +1,4 @@
+//Importando bibliotecas necessárias
 import 'dart:convert';
 import 'package:comparador/controller/login-controller.dart';
 import 'package:comparador/controller/produto-controller.dart';

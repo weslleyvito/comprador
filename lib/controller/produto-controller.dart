@@ -1,11 +1,19 @@
+//Importando as bibliotecas necessárias
 import 'dart:convert';
 import 'package:get/get.dart';
 
 import '../models/produto-modelo.dart';
 
+//Criando uma classe ProdutoController que herda de GetxController
 class ProdutoController extends GetxController {
+  // Criando uma variável reativa do tipo ProdutoModelo para armazenar os dados de um produto
+  // Essas variável pode ser observada e atualizada pelo GetX
   final Rx<ProdutoModelo> produtoDados = ProdutoModelo().obs;
+
+  // Criando uma lista reativa de ProdutoModelo para armazenar os produtos
   final RxList<ProdutoModelo> produtos = <ProdutoModelo>[].obs;
+
+  // Criando uma variável reativa do tipo ProdutoModelo para armazenar os detalhes de um produto
   late final Rx<ProdutoModelo> produtoDetalhar = ProdutoModelo().obs;
 
   /// Método que guarda todos os planos na lista planos

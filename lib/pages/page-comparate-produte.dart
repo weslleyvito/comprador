@@ -1,3 +1,4 @@
+//Importando as bibliotecas necessárias
 import 'package:comparador/service/produto-service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -9,13 +10,17 @@ import 'package:get/get_core/src/get_main.dart';
 
 import '../controller/controller.dart';
 
+//Definindo classe PageComparateProdute que herda de StatefulWidget
 class PageComparateProdute extends StatefulWidget {
+  //Contrutor recebe o parâmetro key para identificar um widget de forma única
   const PageComparateProdute({Key? key}) : super(key: key);
 
+  //Definindo o método createState que retorna _PageComparateProduteState
   @override
   State<PageComparateProdute> createState() => _PageComparateProduteState();
 }
 
+//Definindo uma classe do chamada _PageComparateProduteState que é uma subclasse de PageComparateProdute
 class _PageComparateProduteState extends State<PageComparateProdute> {
   final Controlador _controlador = Get.find<Controlador>();
 
